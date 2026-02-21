@@ -20,7 +20,7 @@ fileprivate let isMacOS11: Bool = {
 }()
 
 fileprivate let TitleBarHeightNormal: CGFloat = {
-  if #available(macOS 26, *) {
+  if #available(macOS 26.0, *) {
     return 32
   } else if #available(macOS 10.16, *) {
     return 28
@@ -615,8 +615,12 @@ class MainWindowController: PlayerWindowController {
     // other initialization
     titleBarBottomBorder.fillColor = NSColor(named: .titleBarBorder)!
     cachedScreenCount = NSScreen.screens.count
-    [titleBarView, osdVisualEffectView, controlBarBottom, controlBarFloating, sideBarView, osdVisualEffectView, pipOverlayView].forEach {
-      $0?.state = .active
+    [titleBarView, osdVisualEffectView, controlBarBottom, controlBarFloating, sideBarView, osdVisualEffectView, pipOverlayView].forEach { view in
+        // Try to cast the view to NSVisualEffectView.
+        // This will only succeed for the views that are still visual effect views.
+        if let effectView = view as? NSVisualEffectView {
+            effectView.state = .active
+        }
     }
     // hide other views
     osdVisualEffectView.isHidden = true

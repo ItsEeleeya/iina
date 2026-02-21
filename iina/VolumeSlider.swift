@@ -11,7 +11,7 @@ import Cocoa
 /// A custom [slider](https://developer.apple.com/design/human-interface-guidelines/macos/selectors/sliders/)
 /// for the volume slider in the on screen controller.
 class VolumeSlider: NSSlider {
-
+  
   // MARK: - Mouse / Trackpad events
 
   /// The user is scrolling while the cursor is within the slider.

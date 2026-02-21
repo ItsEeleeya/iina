@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +29,7 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="IINAWelcomeWindow" animationBehavior="default" titlebarAppearsTransparent="YES" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <rect key="contentRect" x="931" y="455" width="640" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1415"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="870"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="se5-gp-TjO" customClass="InitialWindowContentView" customModule="IINA" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="640" height="400"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -204,14 +204,6 @@
                                             <color key="backgroundColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8hV-gP-tZA">
-                                        <rect key="frame" x="70" y="200" width="37" height="19"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="IINA" id="n70-xD-8He">
-                                            <font key="font" metaFont="systemBold" size="16"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
                                     <customView hidden="YES" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7SF-fn-3LF" customClass="BetaIndicatorView" customModule="IINA" customModuleProvider="target">
                                         <rect key="frame" x="66" y="148" width="44" height="17"/>
                                         <subviews>
@@ -287,6 +279,14 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rqr-FQ-Pb0" secondAttribute="trailing" constant="8" id="yBk-WP-vU6"/>
                                         </constraints>
                                     </customView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8hV-gP-tZA">
+                                        <rect key="frame" x="27" y="221" width="123" height="19"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="IINA" id="n70-xD-8He">
+                                            <font key="font" metaFont="systemBold" size="16"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="8hV-gP-tZA" firstAttribute="top" secondItem="nrn-G9-P2A" secondAttribute="bottom" constant="20" id="1Oa-0T-iZV"/>

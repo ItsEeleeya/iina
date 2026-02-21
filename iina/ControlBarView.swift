@@ -1,4 +1,5 @@
 import Cocoa
+import ObjectiveC.runtime
 
 // The class is a subclass of NSView, acting as a container.
 class ControlBarView: NSView {
@@ -47,10 +48,48 @@ class ControlBarView: NSView {
             // being placed behind content. This provides the blur you want without
             // needing to re-parent any views.
 
-            let fallbackView = NSGlassEffectView()
-            fallbackView.cornerRadius = 26
-            fallbackView.wantsLayer = true
-            self.effectView = fallbackView
+            let glassEffectView = NSGlassEffectView()
+            glassEffectView.cornerRadius = 22
+            glassEffectView.wantsLayer = true
+          
+            // As of macOS 26.3
+            // Value Variant
+            // 0     Regular
+            // 1     Clear
+            // 2     Dock
+            // 3     AppIcons
+            // 4     Widgets
+            // 5     Text
+            // 6     Avplayer
+            // 7     Facetime
+            // 8     ControlCenter
+            // 9     NotificationCenter
+            // 10    Monogram
+            // 11    Bubbles
+            // 12    Identity
+            // 13    FocusBorder
+            // 14    FocusPlatter
+            // 15    Keyboard
+            // 16    Sidebar
+            // 17    AbuttedSidebar
+            // 18    Inspector
+            // 19    Control
+            // 20    Loupe
+            // 21    Slider
+            // 22    Camera
+            // 23    CartouchePopover
+          
+            let setVariantSel = NSSelectorFromString("set_variant:")
+            if let method = class_getInstanceMethod(NSClassFromString("NSGlassEffectView"), setVariantSel) {
+                typealias Setter = @convention(c) (AnyObject, Selector, Int) -> Void
+                
+                let imp = method_getImplementation(method)
+                let func_setVariant = unsafeBitCast(imp, to: Setter.self)
+                
+                func_setVariant(glassEffectView, setVariantSel, 0)
+            }
+          
+            self.effectView = glassEffectView
             
         } else {
             // On older versions, use the same NSVisualEffectView as a fallback.
